@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/fotorama.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/contact.css">
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/style.js" ></script>
+<script src="js/fotorama.js"></script>
+<!-- <script src="js/contact.js"></script> -->
+<script src="js/mail.js" ></script>
+
+<script type="text/javascript">
+  $(function(){
+	  $('.fotorama').fotorama({		
+		autoplay:'true',
+		arrows:'false',
+		stopautoplayontouch:'false',
+		loop:'true',
+	  });
+  })
+</script>
+
+</head>
+<body>
+  
+
+<div class="main">
+
+  <section>
+    <div class="consult">
+      <div class="content">
+        <div class="table">
+          <form name="to_mail" action="mail_send.php" method="post">
+            <div class="table-title">基本資料 : </div>
+            <ul>
+              <li class="t1">
+                <div class="t1-1">會員編號 :</div>
+                <div class="t1-2"><input name="member_number"  class="input1" type="text"></div>
+              </li>
+              <li class="t1">
+                <div class="t1-1">您的姓名 :</div>
+                <div class="t1-2"><input name="username"  class="input1" type="text"></div>
+              </li>
+              <li class="t1">
+                <div class="t1-1">聯絡電話 :</div>
+                <div class="t1-2"><input name="phone"  class="input1" type="text"></div>
+              </li>
+              <li class="t1">
+                <div class="t1-1">電子信箱 :</div>
+                <div class="t1-2"><input name="email"  class="input1" type="text"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="table">
+            <div class="table-title">諮詢需求 : </div>
+            <ul>
+              <li class="t3">
+                <div class="t3-1"><b>留言內容 :</b></div>
+                <div class="t3-2"><textarea name="message" rows="" cols=""></textarea></div>
+              </li>
+
+              <li class="refresh">
+                <div class="r1-1"><b>驗證碼：</b></div>
+                <div class="r1-2">
+                  <div><input name="code" class="input2" type="text"></div>
+                  <div><img id="siimage" align="left" src="captcha/securimage_show.php?sid=<?php echo md5(time()) ?>" /></div>
+                  <div><a tabindex="-1" href="#" title="Refresh Image" onClick="document.getElementById('siimage').src = 'captcha/securimage_show.php?sid=' + Math.random(); return false"><img src="images/contact/refresh.png"></a></div>
+                </div>
+              </li>
+            </ul>
+            </div>
+          </form>
+          <div class="bottom">
+            <div class="btn">
+              <a href="javascript:OnClick=document.to_mail.submit()"><div class="send">確定送出</div></a>
+             <a href="javascript:OnClick=document.to_mail.reset()"><div class="clear">清除重填</div></a>
+            </div>
+          </div>
+        </div>
+      </div>       
+    </div>
+  </div>
+  </section>   
+</div>
+
+
+</body>
+</html>
